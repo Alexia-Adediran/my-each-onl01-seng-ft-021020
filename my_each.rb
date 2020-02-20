@@ -15,3 +15,15 @@
 # my_each(collection) do |i|
 #   puts i
 # end
+class Array
+  def for_each
+    counter = 0
+    while counter < self.size do
+      yield(self[counter]) # pass argument to block and execute 
+      counter += 1
+    end
+    self     # original array is returned 
+  end
+end
+arr = [1, 2, 3, 4]
+arr.for_each {|num| p num }
